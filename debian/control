@@ -1,12 +1,16 @@
-Source: ptux-excludepaths
-Section: unknown
+Source: excludepaths-ptux
+Section: embedded
 Priority: extra
 Maintainer: Ryan Kuester <rkuester@insymbols.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 
-Package: ptux-excludepaths
+Package: excludepaths-ptux
 Architecture: all
 Depends: ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Don't install to certain paths
+ This package uses the dpkg option --path-exclude to prevent the
+ installation of files at paths like /usr/share/man/*. Note this
+ only affects dpkg at runtime; filesystem composers such as mkos
+ need to remove files on these paths themselves, perhaps by
+ looking at path-{exc,inc}lude lines in /etc/dpkg/dpkg.cfg*.
